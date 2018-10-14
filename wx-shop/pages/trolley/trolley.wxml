@@ -14,32 +14,37 @@
 
 <view wx:elif="{{trolleyList.length > 0}}">
   <view class='trolley-top'>
-    <view class='trolley-total' bindtap='onTapCheckTotal'>
-      <view class="trolley-check-wrapper white {{isTrolleyTotalCheck ? 'check' : ''}}">
-        <image class='trolley-check' src='/images/check.png' wx:if='{{isTrolleyTotalCheck}}'></image>
-      </view>
-      <view class='trolley-total-text'>全选</view>
-    </view>
+    <view class='trolley-headLine'>购物车<text class='trolley-subHeadLine'>（共xx件）</text></view>
     <view class='trolley-edit' bindtap='onTapEditTrolley'>{{isTrolleyEdit ? '完成' : '编辑'}}</view>
   </view>
-  <scroll-view class='product-list' scroll-y scroll-with-animation enable-back-to-top>
-    <view class='product-card' wx:for='{{trolleyList}}' wx:for-item='item' wx:key='id'>
-      <view class="trolley-check-wrapper  {{trolleyCheckMap[item.id] ? 'check' : ''}}" bindtap='onTapCheckSingle' data-id="{{item.id}}">
-        <image class="trolley-check" src='/images/check.png' wx:if="{{trolleyCheckMap[item.id]}}"></image>
-      </view>
-      <image class="product-img" src="{{item.image}}"></image>
-      <view class='product-info'>
-        <view class='product-name'>{{item.name}}</view>
-        <view class='product-price'>￥ {{item.price}}</view>
-        <view class='product-count-edit' wx:if='{{isTrolleyEdit}}'>
-          <view class='count-minus' bindtap="adjustTrolleyProductCount" data-type="minus" data-id="{{item.id}}">-</view>
-          <view class='count-now'>{{item.count}}</view>
-          <view class='count-add' bindtap="adjustTrolleyProductCount" data-type="add" data-id="{{item.id}}">+</view>
+  <view class='product-list'>
+    <view class="trolley-card" wx:for='{{shop}}' wx:for-item='shop' wx:key='id'>
+      <view class='trolley-total' bindtap='onTapCheckShopTotal' data-id="{{shop.shopID}}">
+        <view class="trolley-check-wrapper {{isTrolleyShopCheck[index] ? 'check' : ''}}">
+          <image class='trolley-check' src='/images/check.png' wx:if='{{isTrolleyShopCheck[index]}}'></image>
         </view>
-        <view class="product-count" wx:else>x {{item.count}}</view>
+        <view class='trolley-total-text'>{{shop.name}}</view>
       </view>
+      <block  wx:for='{{shop.trolleyList}}' wx:for-item='itemID' wx:key='index'>
+      <view class='product-card'>
+        <view class="trolley-check-wrapper  {{trolleyCheckMap[trolleyList[itemID].id] ? 'check' : ''}}" bindtap='onTapCheckSingle' data-id="{{trolleyList[itemID].id}}">
+          <image class="trolley-check" src='/images/check.png' wx:if="{{trolleyCheckMap[trolleyList[itemID].id]}}"></image>
+        </view>
+        <image class="product-img" src="{{trolleyList[itemID].image}}"></image>
+        <view class='product-info'>
+          <view class='product-name'>{{trolleyList[itemID].name}}</view>
+          <view class='product-price'>￥ {{trolleyList[itemID].price}}</view>
+          <view class='product-count-edit' wx:if='{{isTrolleyEdit}}'>
+            <view class='count-minus' bindtap="adjustTrolleyProductCount" data-type="minus" data-id="{{trolleyList[itemID].id}}">-</view>
+            <view class='count-now'>{{trolleyList[itemID].count}}</view>
+            <view class='count-add' bindtap="adjustTrolleyProductCount" data-type="add" data-id="{{trolleyList[itemID].id}}">+</view>
+          </view>
+          <view class="product-count" wx:else>x {{trolleyList[itemID].count}}</view>
+        </view>
+      </view>
+      </block>
     </view>
-  </scroll-view>
+  </view>
   <view class='trolley-account'>
     <view class='trolley-total' bindtap='onTapCheckTotal'>
       <view class="trolley-check-wrapper {{isTrolleyTotalCheck ? 'check' : ''}}">
@@ -53,7 +58,6 @@
     </view>
     <view class="pay-btn {{trolleyAccount ? 'canpay' : ''}}" bindtap='onTapPay'>结算</view>
   </view>
-
 </view>
 <view class="trolley-empty" wx:else>
   <image class="empty-image" src="/images/trolley.png"></image>
