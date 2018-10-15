@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/home/home",
     "pages/order/order",
     "pages/trolley/trolley",
@@ -8,19 +8,18 @@
     "pages/add-comment/add-comment",
     "pages/comment/comment",
     "pages/shop/shop",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/collect/shop",
+    "pages/collect/shop/shop",
+    "pages/collect/product/product",
+    "pages/history/shopped/shopped",
+    "pages/history/read/read"
   ],
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/home/home",
         "text": "搜好店",
-        "iconPath": "images/home.png",
-        "selectedIconPath": "images/home-sel.png"
-      },
-      {
-        "pagePath": "pages/home/home",
-        "text": "发现好物",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home-sel.png"
       },
@@ -38,10 +37,10 @@
       }
     ]
   },
-  "window":{
-    "backgroundTextStyle":"black",
+  "window": {
+    "backgroundTextStyle": "black",
     "navigationBarBackgroundColor": "#F5E486",
     "navigationBarTitleText": "微购物",
-    "navigationBarTextStyle":"light"
+    "navigationBarTextStyle": "light"
   }
 }

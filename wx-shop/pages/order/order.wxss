@@ -1,8 +1,8 @@
 /* pages/order/order.wxss */
 .order-head {
   display: flex;
-  align-items: center;
-  padding: 26rpx 29rpx 14rpx;
+  flex-direction: row;
+  padding: 16rpx 0 32rpx 0;
 }
 
 .order-head-line {
@@ -11,10 +11,13 @@
 }
 
 .order-head-text {
+  width: 150rpx;
+  text-align: center;
   margin-left: 10rpx;
   font-size: 24rpx;
   line-height: 33rpx;
   color: rgba(52, 55, 61, 0.8);
+  border-bottom: 1rpx solid #fff;
 }
 
 .order-block {
@@ -173,4 +176,28 @@
   background: #F5E069;
   color: #000;
   border:1rpx solid #F5E069;
+}
+.tabList{
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+  color:#fff;
+  margin-bottom: 16rpx;
+}
+.tab{
+  position: relative;
+  width: 150rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.txtBigger{
+  font-size: 32rpx;
+}
+.tab>.active{
+  position: absolute;
+  bottom: 10rpx;
+  left: 27rpx;
+  width: 96rpx;
+  border-bottom: 4rpx solid #fff;
 }

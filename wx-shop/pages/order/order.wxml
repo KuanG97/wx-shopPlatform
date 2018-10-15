@@ -13,9 +13,11 @@
 </view>
 
 <view wx:elif="{{orderList.length > 0}}">
-  <view class="order-head">
-    <image class="order-head-line" src="/images/line-black.png"></image>
-    <view class="order-head-text">已完成</view>
+  <view class='tabList'>
+    <view class="tab" wx:key="*this" wx:for="{{tab}}" wx:for-item="tab">
+      <view class="{{onTab==(index)?'txtBigger' : ''}}" data-current="{{index}}" bindtap='swichNav'>{{tab}}</view>
+      <view class="{{onTab==(index)?'active' : ''}}"></view>
+    </view>
   </view>
   <view wx:for="{{orderList}}" wx:for-index="bindex" wx:for-item="block" wx:key="id" class="order-block">
     <view class='order-title'> 
@@ -37,13 +39,13 @@
     <view class='order-msg'>
     <view class='price'>实付：￥100</view>
     <view wx:if="{{block.status===0}}" class='btn btnLight'>付款</view>
-    <view wx:if="{{block.status===1}}"  class='btn'>催单</view>
-    <view wx:if="{{block.status===2}}"  class='btn btnLight'>确认收货</view>
-    <view wx:if="{{block.status===2}}"  class='btn'>退款</view>
-    <view wx:if="{{block.status===3}}"  class='btn btnLight'>待评价</view>
-    <view wx:if="{{block.status===4}}"  class='btn'>售后</view>
-    <view wx:if="{{block.status===4}}"  class='btn'>删除订单</view>
+    <view wx:if="{{block.status===1}}" class='btn'>催单</view>
+    <view wx:if="{{block.status===2}}" class='btn btnLight'>确认收货</view>
     <view wx:if="{{block.status===2}}" class='btn'>查看物流</view>
+    <view wx:if="{{block.status===2}}" class='btn'>退款</view>
+    <view wx:if="{{block.status===3}}" bindtap='bindComment' class='btn btnLight' data-orderID="{{block.id}}">待评价</view>
+    <view wx:if="{{block.status===4}}" class='btn'>售后</view>
+    <view wx:if="{{block.status===4}}" class='btn'>删除订单</view>
     </view>
   </view>
 </view>

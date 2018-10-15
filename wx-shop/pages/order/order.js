@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tab: ["全部", "待付款", "待发货", "待收货","待评价"],
+    onTab:0,
     userInfo: {
       avatarUrl: "https://wx.qlogo.cn/mmopen/vi_32/DYAIOgq83ep0rhE4hQtvdmMMF5jC0QHD1Z5S8zucA97SZoMDuZQGDpadfhKowCC7kyc3opovLo7extflsHnzqw/132",
       city: "Dongguan",
@@ -15,7 +17,7 @@ Page({
       province: "Guangdong"
     },
     orderList:[{
-      id: 0,
+      id: 33,
       shopName:"于治抹茶店",
       status:0,
       list: [{
@@ -69,7 +71,7 @@ Page({
         }]
       },
       {
-        id: 2,
+        id: 3,
         shopName: "于治抹茶店",
         status: 3,
         list: [{
@@ -84,7 +86,7 @@ Page({
         }]
       },
       {
-        id: 2,
+        id: 4,
         shopName: "于治抹茶店",
         status: 4,
         list: [{
@@ -155,5 +157,35 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  /**
+   * 
+  */
+  bindComment(event){
+    let orderID = event.currentTarget.dataset.orderid
+
+    wx:wx.navigateTo({
+      url: '/pages/add-comment/add-comment?orderID=' + orderID,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  /**
+   * 点击标题切换对应栏目的swiper-item
+   * tab: ["全部", "待付款", "待发货", "待收货","待评价"]
+   */ 
+  swichNav: function (e) {
+    var cur = e.currentTarget.dataset.current;
+    if (this.data.tab == cur) { return false; }
+    else {
+      switch(cur){
+        
+      }
+      this.setData({
+        onTab: cur
+      })
+    }
+  },
 })

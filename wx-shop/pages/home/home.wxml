@@ -1,10 +1,10 @@
+<view class='block'></view>
 <image class="bg" src="/images/bg.png"></image>
 <view wx:if="{{userInfo}}">
-  <view class="user-info">
-    <image class="user-head" src="{{userInfo.avatarUrl}}"></image>
-    <view class="user-name">{{userInfo.nickName}}</view>
+  <view class='infoSearch'>
+    <view class='title'><image src='/images/search.png' class='search'></image><text class='marL16'>海量好店好货等你淘</text></view>
   </view>
-  <view class='info'>
+  <view class='infoBox'>
     <view class='info-block'  wx:for='{{msgList}}' wx:for-item='item' wx:key='name'>
       <text class='info-num'>{{item.num}}</text>
       <text class='info-text'>{{item.name}}</text>
@@ -24,7 +24,7 @@
 </view>
 
 <block wx:elif="{{shopList.length > 0}}">
-  <view class='product-list' scroll-y scroll-with-animation enable-back-to-top>
+  <view class='product-list'>
     <view class='product-card' wx:for='{{shopList}}' wx:for-item='item' wx:key='id'>
       <view class='shopBox'>
         <image class='brand' src='{{item.brand}}'></image>
@@ -32,7 +32,7 @@
           <view class='shopName'>{{item.name}}</view>
           <view class='subTitle'>回头率：{{item.backPer}}%|{{item.buyer}}人买过</view>
         </view>
-        <view class='star'>收藏+</view>
+        <view class='star' bindtap='bindCollect' data-id="{{item.shopID}}">收藏+</view>
       </view>
       <view class='itemBox'>
         <view class='itemShow' wx:for="{{item.itemList}}"  wx:for-item='product' data-itemID="{{product.itemID}}"  data-shopID="{{item.shopID}}" bindtap='bindDetail'>

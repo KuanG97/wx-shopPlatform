@@ -111,3 +111,7 @@ page {
   font-size: 24rpx;
   color:#777;
 }
+.search{
+  width:40rpx;
+  height: 40rpx;
+}

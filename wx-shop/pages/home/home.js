@@ -82,16 +82,22 @@ Page({
     })
   },
   bindShop(e){
-    // let itemID = e.currentTarget.dataset.itemid;
+    // let itemID = e.currentTarget.dataset.itemid;\
     wx.navigateTo({
       url: '../../pages/shop/shop',
     })
   },
   /**
+   * 收藏店铺
+  */
+  bindCollect(e){
+    let shopID = e.currentTarget.dataset.id
+    console.log(shopID);
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
   },
 
   /**

@@ -2,7 +2,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 450rpx;
+  top: 170rpx;
   bottom: 100rpx; 
   padding-bottom: 30rpx;
 }
@@ -87,4 +87,47 @@
 .itemImg{
   width: 200rpx;
   height:200rpx;
+}
+.infoBox{
+  width: 750rpx;
+  height: 86rpx;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding-bottom:16rpx;
+}
+.info-block,.info-text,.info-num{
+  color:#fff;
+}
+.infoSearch{
+  font-size: 28rpx;
+  line-height: 40rpx;
+  background: #F5E486;
+  margin-bottom: 16rpx;
+}
+.block{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:60rpx;
+  background: #F5E486;
+  z-index: -1;
+}
+.bg {
+  top: 60rpx;
+}
+.title{
+  width: 500rpx;
+  padding: 10rpx 32rpx 0;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  text-align: center;
+  line-height: 40rpx;
+}
+.marL16{
+  margin-left: 16rpx;
+  position: relative;
+  top: -8rpx;
 }
