@@ -18,6 +18,11 @@
     <view class="order-head-text">已完成</view>
   </view>
   <view wx:for="{{orderList}}" wx:for-index="bindex" wx:for-item="block" wx:key="id" class="order-block">
+    <view class='order-title'> 
+      <image src='/images/shop.png' class='shop'></image>
+      {{block.shopName}}
+      <image src='/images/grey-arrow.png' class='right'></image>
+      <text class='order-status'>{{block.status===0?"待付款":(block.status===1)?"待发货":(block.status===2)?"待收货":(block.status===3)?"待评价":"已完成"}}</text></view>
     <view wx:for="{{block.list}}" wx:key="id" class="order-card">
       <image class="order-image" mode="widthFix" src="{{item.image}}"></image>
       <view class="order-info">
@@ -25,9 +30,20 @@
         <view class="order-price">¥ {{item.price}}</view>
       </view>
       <view class="order-opr">
-        <navigator class="order-btn" url="/pages/add-comment/add-comment?id={{item.product_id}}&price={{item.price}}&name={{item.name}}&image={{item.image}}">评价</navigator>
+        <navigator wx:if="{{block.status===4}}" class="order-btn" url="/pages/add-comment/add-comment?id={{item.product_id}}&price={{item.price}}&name={{item.name}}&image={{item.image}}">评价</navigator>
         <view class="order-count">x{{item.count}}</view>
       </view>
+    </view>
+    <view class='order-msg'>
+    <view class='price'>实付：￥100</view>
+    <view wx:if="{{block.status===0}}" class='btn btnLight'>付款</view>
+    <view wx:if="{{block.status===1}}"  class='btn'>催单</view>
+    <view wx:if="{{block.status===2}}"  class='btn btnLight'>确认收货</view>
+    <view wx:if="{{block.status===2}}"  class='btn'>退款</view>
+    <view wx:if="{{block.status===3}}"  class='btn btnLight'>待评价</view>
+    <view wx:if="{{block.status===4}}"  class='btn'>售后</view>
+    <view wx:if="{{block.status===4}}"  class='btn'>删除订单</view>
+    <view wx:if="{{block.status===2}}" class='btn'>查看物流</view>
     </view>
   </view>
 </view>

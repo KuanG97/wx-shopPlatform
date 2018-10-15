@@ -15,7 +15,9 @@ Page({
       province: "Guangdong"
     },
     orderList:[{
-      id: 1,
+      id: 0,
+      shopName:"于治抹茶店",
+      status:0,
       list: [{
         count: 1,
         create_time: "2018-09-29T07:01:21.000Z",
@@ -28,7 +30,10 @@ Page({
       }]
     },
       {
-        id: 2, list: [{
+        id: 1, 
+        shopName: "于治抹茶店222",
+        status: 1,
+        list: [{
           count: 1,
           create_time: "2018-09-29T07:01:21.000Z",
           id: 11,
@@ -49,7 +54,40 @@ Page({
         }]
       },
       {
-        id: 3, list: [{
+        id: 2, 
+        shopName: "于治抹茶店",
+        status: 2,
+        list: [{
+          count: 2,
+          create_time: "2018-09-29T07:10:47.000Z",
+          id: 12,
+          image: "https://product-1253572796.cos.ap-guangzhou.myqcloud.com/product5.jpg",
+          name: "仿铁盘创意时钟",
+          price: 45,
+          product_id: 5,
+          user: "o3OTS5EjhcNRyWBFlXhaOsn6em9c"
+        }]
+      },
+      {
+        id: 2,
+        shopName: "于治抹茶店",
+        status: 3,
+        list: [{
+          count: 2,
+          create_time: "2018-09-29T07:10:47.000Z",
+          id: 12,
+          image: "https://product-1253572796.cos.ap-guangzhou.myqcloud.com/product5.jpg",
+          name: "仿铁盘创意时钟",
+          price: 45,
+          product_id: 5,
+          user: "o3OTS5EjhcNRyWBFlXhaOsn6em9c"
+        }]
+      },
+      {
+        id: 2,
+        shopName: "于治抹茶店",
+        status: 4,
+        list: [{
           count: 2,
           create_time: "2018-09-29T07:10:47.000Z",
           id: 12,
